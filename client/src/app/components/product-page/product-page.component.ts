@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../models/product';
+import { Product } from '../../models/product';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CurrencyPipe } from '@angular/common';
 import { Router, RouterOutlet, RouterLink, ActivatedRoute, ParamMap } from '@angular/router';
-import { ProductService } from '../services/product.service';
+import { ProductService } from '../../services/product.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-page',
@@ -26,9 +27,10 @@ export class ProductPageComponent {
     price: 0,
     image: ''
   };
+  quantity: number = 1;
   productID: number | undefined;
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) {}
+  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: CartService) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe({ next: (params) => {
@@ -38,7 +40,18 @@ export class ProductPageComponent {
     this.productService.getProductByID(this.productID).subscribe(
       p => this.product = p
     );
-    console.log(this.productID);
+  }
+
+  increaseQty(): void {
+    this.quantity += 1;
+  }
+
+  decreaseQty(): void {
+    this.quantity -= 1;
+  }
+
+  onAdd() {
+    this.cartService.addToCart({ product: this.product, quantity: this.quantity });
   }
 
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
@@ -19,11 +19,15 @@ export class ProductService {
   };
 
   getProducts() : Observable<Product[]> {
-    return this.httpClient.get<Product[]>("https://localhost:7074/products", this.httpOptions);
+    return this.httpClient.get<Product[]>(`${environment.apiUrl}/products`, this.httpOptions);
   }
 
   getProductByID(id: number) : Observable<Product> {
-    console.log(`${environment.apiUrl}/products/${id}`);
-    return this.httpClient.get<Product>(`${environment.apiUrl}/products/${id}`);
+    return this.httpClient.get<Product>(`${environment.apiUrl}/products/${id}`, this.httpOptions);
+  }
+
+  searchProducts(term: string): Observable<Product[]> {
+    const params = new HttpParams().set('q', term);
+    return this.httpClient.get<Product[]>(`${environment.apiUrl}/products`, { params });
   }
 }

@@ -1,12 +1,14 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductPageComponent } from './product-page/product-page.component';
-import { SignupFormComponent } from './signup-form/signup-form.component';
-import { CartComponent } from './cart/cart.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductPageComponent } from './components/product-page/product-page.component';
+import { SignupFormComponent } from './components/signup-form/signup-form.component';
+import { CartComponent } from './components/cart/cart.component';
 
 export const routes: Routes = [
-    { path: '', component: ProductListComponent },
+    { path: 'products/all', component: ProductListComponent },
+    { path: '', redirectTo: 'products/all', pathMatch: 'full' },
+    { path: 'search', component: ProductListComponent},
     { path: 'product-details', component: ProductPageComponent },
     { path: 'cart', component: CartComponent },
     { path: 'signup', component: SignupFormComponent },

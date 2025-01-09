@@ -1,6 +1,6 @@
 <div class="container">
     <div class="account-form">
-        <form (ngSubmit)="onSubmit()">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <mat-form-field appearance="outline" class="form-element">
                 <mat-label >First name</mat-label>
                 <input matInput id="firstName" type="text" formControlName="firstName"/>
@@ -22,7 +22,7 @@
                 <input matInput id="password" type="password" formControlName="password"/>
             </mat-form-field>
 
-            <button mat-flat-button type="submit" class="form-element submit-button">Log in</button>
+            <button mat-flat-button type="submit" class="form-element submit-button">Create account</button>
         </form>
     </div>
 </div>

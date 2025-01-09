@@ -1,0 +1,13 @@
+.component {
+    width: 80%;
+    display: block;
+    align-items: center;
+    margin: auto;
+}
+
+.grid {
+    width: 80%;
+    margin: auto;
+
+}
+

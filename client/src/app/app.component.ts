@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { RouterOutlet, RouterLink } from '@angular/router';
-import { SignupFormComponent } from "./signup-form/signup-form.component";
+import { RouterOutlet, RouterLink, Router } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
-import { ProductListComponent } from "./product-list/product-list.component";
 import { CartService } from './services/cart.service';
-import { Cart, Item } from './models/cart';
+import { Item } from './models/cart';
 import { ProductService } from './services/product.service';
 import { HttpClient } from '@angular/common/http';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
@@ -18,12 +17,10 @@ import { HttpClient } from '@angular/common/http';
     CommonModule,
     RouterOutlet,
     RouterLink,
-    // LoginFormComponent,
     MatIconModule,
     MatToolbarModule,
     MatBadgeModule,
-    // SignupFormComponent,
-    // ProductListComponent,
+    FormsModule
   ],
   providers: [ ProductService, HttpClient ],
   templateUrl: './app.component.html',
@@ -32,12 +29,23 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
   title = 'client';
   cart: Item[] = [];
-  constructor (public _cartService: CartService) {}
+
+  search: string = '';
+  //search = new FormControl('');
+  constructor (public _cartService: CartService, private router: Router) {}
   
   ngOnInit() {
     this._cartService.setCartContents();
     this._cartService.cart$.subscribe({
       next: items => this.cart = items
     })
+  }
+
+  onSearch() {
+    // console.log("search value: ", this.search);
+    console.log("onSearch");
+    this.router.navigate(["/search"], {
+      queryParams: { q: this.search }
+    });
   }
 }

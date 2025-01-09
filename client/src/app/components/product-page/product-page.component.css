@@ -45,3 +45,19 @@
         border: 1px rgb(25, 82, 49);
     }
 }
+
+.qty-control {
+    background-color: rgb(229, 229, 229);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 22px;
+    color: black;
+    .mat-icon {
+        position: relative;
+        transform: translate(-40%, -25%);
+        color: black;
+        fill: black;
+        vertical-align: top;
+    }
+}

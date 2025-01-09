@@ -1,0 +1,22 @@
+.container {
+    height: 100%;
+    align-items: center;
+    
+}
+
+.account-form {
+    position: relative;
+    height: fit-content;
+    width: 30%;
+    margin: auto;
+}
+
+.form-element {
+    display: block;
+}
+
+.submit-button {
+    margin: auto;
+}
+
+

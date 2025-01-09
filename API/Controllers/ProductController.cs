@@ -14,20 +14,31 @@ public class ProductController : ControllerBase
         _repository = repository;
     }
 
-    [HttpGet]
+    [HttpGet("all")]
     public async Task<ActionResult<IEnumerable<Product>>> GetProductCatalog()
     {
-        Console.WriteLine("hello from products endpoint");
         var catalog = await _repository.GetProductsAsync();
         if (catalog == null) return NotFound("Product catalog empty");
         return Ok(catalog);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Product>> GetProductByID([FromQuery] int id)
-    {
-        var result = await _repository.GetProductByIdAsync(id);
+    public async Task<ActionResult<Product>> GetProductByID(int id)
+    {        var result = await _repository.GetProductByIdAsync(id);
         if (result != null) return Ok(result);
         return NotFound(null);
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Product>>> SearchProducts([FromQuery(Name="q")] string? term) 
+    {
+        Console.WriteLine(term);
+        if (string.IsNullOrEmpty(term))
+            return await _repository.GetProductsAsync();
+        else
+        {
+            var result = await _repository.SearchProductsAsync(term);
+            return Ok(result);
+        }
     }
 }

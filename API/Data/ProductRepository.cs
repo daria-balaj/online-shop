@@ -30,4 +30,9 @@ public class ProductRepository
         return await _context.SaveChangesAsync() > 0;
 
     }
+
+    public async Task<Product[]> SearchProductsAsync(string term)
+    {
+        return await _context.Products.Where(p => p.Title.ToLower().Contains(term.ToLower())).ToArrayAsync();
+    }
 }

@@ -1,0 +1,68 @@
+.card { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+    width: 250px;
+    /* padding: 15px; */
+    margin: 15px;
+    background-color: white;
+    img {
+        max-width: 250px;
+        /* max-height: 200px; */
+    }
+}
+
+/* .mat-mdc-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 
+                0 1px 4px rgba(0, 0, 0, 0.15); 
+    border-radius: 8px; 
+  } */
+  
+
+#product-title {
+    font-weight: 450;
+    font-size: 16px;
+    /* height: 30px; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: block; /* Ensure it's a block element */
+    overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis; /* Add ellipsis for truncated text */
+  white-space: nowrap; /* Prevent line breaks (single-line truncation) */
+  line-height: 1.2em; /* Adjust line height */
+  min-height: 3em; /* Set height to match two lines */
+}
+
+
+.title {
+    font-weight: 550;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;  
+}
+
+.card-footer {
+    display: flex;
+    vertical-align: bottom;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.add-to-cart-btn {
+    padding: 0;
+}
+
+.price {
+    font-weight: bolder;
+    font-size: 16;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+}

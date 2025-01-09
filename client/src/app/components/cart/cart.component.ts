@@ -4,11 +4,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
-import { Product } from '../models/product';
-import { Cart, Item } from '../models/cart';
+import { Product } from '../../models/product';
+import { Cart, Item } from '../../models/cart';
 import { MatDividerModule } from '@angular/material/divider';
 import { CurrencyPipe } from '@angular/common';
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../services/cart.service';
 import { take } from 'rxjs';
 
 

@@ -3,7 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Product } from '../models/product';
+import { Product } from '../../models/product';
 import { CurrencyPipe } from '@angular/common';
 
 @Component({
