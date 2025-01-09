@@ -1,0 +1,17 @@
+<mat-card class="card">
+    <div class="card-info">
+        <a routerLink="/product-details" [queryParams]="{ id : this.product!.id }">
+        <!-- <a (onclick)="goToProduct()"> -->
+            <div class="link-area">
+                <img mat-card-image class="mb-1" [src] = "this.product!.image">
+                <mat-card-title id="product-title">{{product!.title}}</mat-card-title>
+            </div>
+        </a>
+    </div>
+    <div class="card-footer">
+        <span class="price">{{ product!.price | currency: 'RON' }}</span>
+        <button mat-icon-button class="add-to-cart-btn">
+            <mat-icon class="p-0" (click)="onAddToCart()">shopping_cart</mat-icon>
+        </button>
+    </div>
+</mat-card>

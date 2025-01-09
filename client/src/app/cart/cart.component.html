@@ -1,0 +1,51 @@
+<div class="container">
+    <h2>Your cart</h2>
+    <div *ngIf="cart.length" class="cart-contents">
+    <div class="cart-info">
+    <div class="prod-list">
+    <div *ngFor="let item of cart">
+        <mat-card class="item-card m-4 p-3">
+            <img [src]="item.product.image">
+            <div class="col">
+                <p>{{item.product.title}}</p>
+                <span class="price">{{ item.product.price | currency: 'RON'}}</span>
+                <div class="qty flex">
+                    <button class="qty-control btn" [disabled]="item.quantity === 1" (click)="onQtyDecrease(item.product.id)" >
+                    <mat-icon class="material-symbols-outlined">
+                        remove
+                    </mat-icon>
+                    </button>
+                    <span class="mx-1"> {{ item.quantity }} </span>
+                    <button class="qty-control btn" (click)="onQtyIncrease(item.product.id)" >
+                    <mat-icon>
+                        add
+                    </mat-icon>
+                    </button>
+                    <a class="btn-danger p-1 m-3" (click)="onRemove(item.product.id)" >
+                        Remove
+                    </a>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+    <mat-divider></mat-divider>
+    <span>Subtotal ({{ this._cartService.getItemCount() }} items):</span><span>{{ this._cartService.getCartTotal() | currency: 'RON' }}</span>
+    </div>
+    <mat-card class="summary p-3">
+    <div class="summary-costs">
+        <span>Subtotal ({{ this._cartService.getItemCount() }} items):</span>
+        <span>{{ this._cartService.getCartTotal() | currency: 'RON' }}</span>
+    </div>
+    <div class="summary-costs">
+        <span>Delivery cost: </span>
+        <span>{{ '19.99' | currency: 'RON' }}</span>
+    </div>
+    </mat-card>
+    </div>
+    </div>
+    <div *ngIf="cart.length === 0">
+    <p id="banner" class="rounded">
+    Your cart is empty. <span><a routerLink="" >Continue shoppping.</a></span>
+    </p>
+    </div>
+</div>

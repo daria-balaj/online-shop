@@ -1,0 +1,14 @@
+<div class="account-form">
+    <form (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="form-element">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email"/>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-element">
+            <label for="password">Password</label>
+            <input matInput id="password" type="password" formControlName="password"/>
+        </mat-form-field>
+
+        <button mat-raised-button type="submit" class="form-element">Log in</button>
+    </form>
+</div>

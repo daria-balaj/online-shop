@@ -1,0 +1,11 @@
+<mat-grid-list class="grid"
+    gutterSize="2"
+    cols="4"
+    rowHeight="300">
+    <!-- todo: price range -->
+    <ng-container *ngFor="let product of products">
+        <mat-grid-tile >
+            <app-product-card [product]="product" (addToCart)="addProductToCart($event)" ></app-product-card>
+        </mat-grid-tile>
+    </ng-container>
+</mat-grid-list>

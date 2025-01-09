@@ -1,0 +1,15 @@
+.account-form {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    gap: 4px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.form-element {
+    display: block;
+    width: 50%;
+    height: 50%;
+}
