@@ -7,8 +7,8 @@ using AutoMapper;
 namespace API.Controllers 
 {
     [ApiController]
-    [Route("")]
-    public class AuthController : ControllerBase 
+    [Route("api")]
+    public class AuthController : BaseAPIController 
     {
         private readonly UserManager<User> _userService;
         private readonly IMapper _mapper;

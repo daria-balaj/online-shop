@@ -17,10 +17,16 @@ builder.Services.AddDbContext<DataContext>(opt =>
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ProductRepository>();
+
 builder.Services.AddAuthentication();
+
 
 var app = builder.Build();
 
+app.UseAuthorization();
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -36,9 +42,9 @@ app.UseCors(policyBuilder => policyBuilder
         .AllowCredentials()
         .WithOrigins("https://localhost:4200", "http://localhost:4200"));
 
-app.UseAuthorization();
 
 app.MapControllers();
+app.MapFallbackToController("Index", "Fallback");
 
 using var scope = app.Services.CreateScope();
 try 

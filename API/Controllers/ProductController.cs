@@ -1,9 +1,10 @@
+using API.Controllers;
 using API.Data;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("products")]
+[Route("api/products")]
 public class ProductController : ControllerBase
 {
     // private readonly ProductService _productService;
