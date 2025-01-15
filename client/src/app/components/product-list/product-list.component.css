@@ -1,13 +1,39 @@
 .component {
-    width: 80%;
-    display: block;
+    /* width: 90%; */
+    display: flex;
+    flex-direction: row;
     align-items: center;
     margin: auto;
 }
 
-.grid {
-    width: 80%;
-    margin: auto;
+#select-order, div.mat-mdc-select-panel {
+    background-color: var(--color-off-white);
+}
 
+.mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+    background-color: var(--color-dark-green) !important;
+    border: 1px solid var(--color-dark-green);
+}
+
+.filter-menu {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    left: 3%;
+    position: absolute;
+    top: 25%;
+}
+
+.label {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.grid {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex: row;
+    justify-content: center;
 }
 

@@ -8,11 +8,11 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("")]
-    public class UserController : ControllerBase 
+    public class AuthController : ControllerBase 
     {
         private readonly UserManager<User> _userService;
         private readonly IMapper _mapper;
-        public UserController(UserManager<User> userManager, IMapper mapper)
+        public AuthController(UserManager<User> userManager, IMapper mapper)
         {
             _userService = userManager;
             _mapper = mapper;
@@ -37,6 +37,13 @@ namespace API.Controllers
             
             return newUser;
         }
+
+        // [HttpPost("login")]
+        // public async Task<ActionResult> Login(LoginDTO loginModel)
+        // {
+
+        // }
+
     }
 
 }

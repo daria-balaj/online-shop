@@ -1,6 +1,7 @@
 
 
 using API.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,5 +35,15 @@ public class ProductRepository
     public async Task<Product[]> SearchProductsAsync(string term)
     {
         return await _context.Products.Where(p => p.Title.ToLower().Contains(term.ToLower())).ToArrayAsync();
+    }
+
+    public async Task DeleteProductAsync(int id)
+    {
+        Product? p = await _context.Products.FindAsync(id);
+        if (p != null) 
+        {
+            _context.Remove(p);
+            await _context.SaveChangesAsync();
+        }
     }
 }

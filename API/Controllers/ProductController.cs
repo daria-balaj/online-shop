@@ -17,9 +17,11 @@ public class ProductController : ControllerBase
     [HttpGet("all")]
     public async Task<ActionResult<IEnumerable<Product>>> GetProductCatalog()
     {
-        var catalog = await _repository.GetProductsAsync();
-        if (catalog == null) return NotFound("Product catalog empty");
-        return Ok(catalog);
+        // var catalog = await _repository.GetProductsAsync();
+        // if (catalog.Count == 0) return NotFound("Product catalog empty");
+        // return Ok(catalog);
+        return await _repository.GetProductsAsync();
+
     }
 
     [HttpGet("{id}")]
@@ -40,5 +42,11 @@ public class ProductController : ControllerBase
             var result = await _repository.SearchProductsAsync(term);
             return Ok(result);
         }
+    }
+
+    [HttpDelete("delete/{id}")]
+    public async void DeleteProduct([FromRoute] int id) {
+        Console.WriteLine(id);
+        await _repository.DeleteProductAsync(id);
     }
 }

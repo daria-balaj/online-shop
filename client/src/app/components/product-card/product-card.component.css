@@ -19,6 +19,10 @@
     border-radius: 8px; 
   } */
   
+img {
+    width: 200px;
+    height: 130px;
+}
 
 #product-title {
     font-weight: 450;

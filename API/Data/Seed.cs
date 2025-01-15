@@ -7,8 +7,9 @@ public class Seed
 {
     public static async void SeedProducts(ProductRepository repository)
     {
-        // var content = await repository.GetProductsAsync();
-        // if (content.Count > 0) return;
+        var content = await repository.GetProductsAsync();
+        Console.WriteLine(content.Count);
+        if (content.Count > 0) return;
 
         var data = await File.ReadAllTextAsync("Data/Catalog.json");
         var serializerOptions = new JsonSerializerOptions{ PropertyNameCaseInsensitive = true };

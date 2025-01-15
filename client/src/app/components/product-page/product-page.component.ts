@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 import { Product } from '../../models/product';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -6,10 +6,12 @@ import { CurrencyPipe } from '@angular/common';
 import { Router, RouterOutlet, RouterLink, ActivatedRoute, ParamMap } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product-page',
   imports: [
+    FormsModule,
     RouterLink,
     MatIconModule,
     MatButtonModule,

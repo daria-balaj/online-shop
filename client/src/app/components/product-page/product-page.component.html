@@ -1,43 +1,37 @@
-<div class="product-details mx-4">
-
-    <h3 id="title">{{product!.title}}</h3>
-    <div class="pr-top p-4 my-4">
-        <div class="mw-50 px-4">
-            <img class="product-image" [src]="product.image">
-        </div>
-        <div class="col-right px-4">
-            <span class="price">{{product.price | currency: 'RON' }}</span>
-            <div class="flex my-3">
-                <button class="qty-control btn" [disabled]="quantity === 1" (click)="decreaseQty()" >
-                    <mat-icon class="material-symbols-outlined">
-                        remove
-                    </mat-icon>
-                    </button>
-                    <span class="mx-1"> {{ quantity }} </span>
-                    <button class="qty-control btn" (click)="increaseQty()" >
-                    <mat-icon>
-                        add
-                    </mat-icon>
-                </button>
-            </div>
-            <button class="btn btn-lg btn-success px-4 add-to-cart-btn" (click)="onAdd()">Add to cart
+<div class="pr-top p-4 m-4">
+    <!-- <div class="mw-50 px-4"> -->
+        <img class="product-image px-4" [src]="product.image">
+    <!-- </div> -->
+    <div class="col-right px-4">
+        <h4 id="title">{{product!.title}}</h4>
+        <p class="py-4">{{product!.description}}</p>
+        <span class="price">{{product.price * quantity | currency: 'RON' }}</span>
+        <div class="product-options my-3">
+            <button class="qty-control btn" [disabled]="quantity === 1" (click)="decreaseQty()">
+                <mat-icon class="material-symbols-outlined">remove</mat-icon>
             </button>
-                
+                <!-- <span class="mx-1"> {{ quantity }} </span> -->
+            <input type="number" name="qty"  min=1 readonly="true" [(ngModel)]="quantity">
+            <button class="qty-control btn" (click)="increaseQty()" >
+                <mat-icon>add</mat-icon>
+            </button>
+            <button class="btn btn-lg btn-success mx-2 px-4 add-to-cart-btn" (click)="onAdd()">Add to cart
+            </button>
         </div>
     </div>
-    <nav class="navbar w-full rounded">
-        <a mat-flat-button routerLink="/" fragment="description">Description</a>
-        <a mat-flat-button href="#information">Product information</a>
-        <a mat-flat-button href="#reviews">Reviews</a>
-    </nav>
-
-    <section class="p-3">
-        <h2 id="description">Product description</h2>
-        <p class="py-4">{{product.description}}</p>
-    </section>
-
-    <section>
-        <h2 id="information">Product specifications</h2>
-        
-    </section>
 </div>
+<!-- <nav class="navbar w-full rounded">
+    <a mat-flat-button routerLink="/" fragment="description">Description</a>
+    <a mat-flat-button href="#information">Product information</a>
+    <a mat-flat-button href="#reviews">Reviews</a>
+</nav> -->
+
+<section class="p-3">
+    <h2 id="description">Product description</h2>
+    <p class="py-4">{{product.description}}</p>
+</section>
+
+<section>
+    <h2 id="information">Product specifications</h2>
+    
+</section>

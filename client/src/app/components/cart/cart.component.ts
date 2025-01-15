@@ -27,6 +27,7 @@ import { take } from 'rxjs';
 })
 export class CartComponent implements OnInit {
   cart: Item[] = [];
+  deliveryCost: number = 19.99;
 
   constructor (protected _cartService: CartService) {}
   
@@ -34,10 +35,6 @@ export class CartComponent implements OnInit {
     this._cartService.cart$.subscribe({
       next: items => this.cart = items
     })
-    // let cartJSON = localStorage.getItem('cart');
-    // if (cartJSON != null) {
-    //   this.cart = JSON.parse(cartJSON);
-    // }
   }
 
   onQtyDecrease(id: number) : void {
@@ -50,6 +47,10 @@ export class CartComponent implements OnInit {
 
   onRemove(itemID: number) : void {
     this._cartService.removeFromCart(itemID);
+  }
+
+  onClear() : void {
+    this._cartService.clearCart();
   }
 
 }

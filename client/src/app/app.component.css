@@ -11,7 +11,23 @@
     height: 100%;
     width: 100%;
     margin-inline: auto;
+    background-color: var(--color-off-white);
     /* margin-bottom: 130px; */
+}
+
+.product-options {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+    * {
+        display: inline;
+    }
+}
+
+.add-to-cart-btn {
+    border-radius: 2px;
+    width: 100%;
+
 }
 
 #navbar-branding {
@@ -58,7 +74,7 @@ a {
     height: 36px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    border: 1px solid rgb(24, 72, 45);
+    border: 1px solid var(--color-dark-green);
     border-right: 0;
     padding: 15px;
 }
@@ -68,7 +84,7 @@ a {
     height: 36px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    border: 1px solid rgb(24, 72, 45);
+    border: 1px solid var(--color-dark-green);
     border-left: 0;
     padding: 15px;
     svg {

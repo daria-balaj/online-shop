@@ -32,14 +32,19 @@
     <span>Subtotal ({{ this._cartService.getItemCount() }} items):</span><span>{{ this._cartService.getCartTotal() | currency: 'RON' }}</span>
     </div>
     <mat-card class="summary p-3">
-    <div class="summary-costs">
-        <span>Subtotal ({{ this._cartService.getItemCount() }} items):</span>
-        <span>{{ this._cartService.getCartTotal() | currency: 'RON' }}</span>
-    </div>
-    <div class="summary-costs">
-        <span>Delivery cost: </span>
-        <span>{{ '19.99' | currency: 'RON' }}</span>
-    </div>
+        <div class="summary-costs">
+            <span>Subtotal ({{ this._cartService.getItemCount() }} items):</span>
+            <span>{{ this._cartService.getCartTotal() | currency: 'RON' }}</span>
+        </div>
+        <div class="summary-costs">
+            <span>Delivery cost: </span>
+            <span>{{ this.deliveryCost| currency: 'RON' }}</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="summary-costs">
+            <span>Total: </span>
+            <span>{{ this._cartService.getCartTotal() + this.deliveryCost | currency: 'RON' }}</span>
+        </div>
     </mat-card>
     </div>
     </div>

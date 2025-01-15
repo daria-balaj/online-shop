@@ -3,12 +3,12 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
-shop.db
-shop.db-shm
-shop.db-wal
-
 # dotenv files
 .env
+
+*.db
+*db-shm
+*db-wal
 
 # User-specific files
 *.rsuser

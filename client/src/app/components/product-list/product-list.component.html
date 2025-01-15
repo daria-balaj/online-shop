@@ -1,10 +1,32 @@
 <div class="component">
-    <mat-grid-list class="grid" gutterSize="10" cols="4" rowHeight="320" colWidth="230">
-        <!-- todo: price range -->
-        <!-- <ng-container *ngFor="let product of products"> -->
-            <mat-grid-tile *ngFor="let product of products" class="m-5">
-                <app-product-card [product]="product" (addToCart)="addProductToCart($event)" ></app-product-card>
-            </mat-grid-tile>
-        <!-- </ng-container> -->
+    <div class="filter-menu">
+        <h5>Availability</h5>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              In stock
+            </label>
+          </div>
+        <br>
+
+        <h5>Sort order</h5>
+        <mat-select [(ngModel)]="selectedSortOption" (selectionChange)="sortProducts()" style="width: 120px;" id="select-order">
+            <mat-option value="alphabetical">
+                A to Z
+            </mat-option>
+            <mat-option value="priceAsc">
+                Price: Low to High
+            </mat-option>
+            <mat-option value="priceDesc">
+                Price: High to Low
+            </mat-option>
+        </mat-select>
+    </div>
+      
+    <ng-container *ngIf="this.searchQuery"><p class="label mb-3">Search results for "{{this.searchQuery}}"</p></ng-container>
+    <mat-grid-list class="grid" gutterSize="4" cols="4" rowHeight="320" colWidth="230">
+        <mat-grid-tile *ngFor="let product of products" class="m-5">
+            <app-product-card [product]="product" (addToCart)="addProductToCart($event)" ></app-product-card>
+        </mat-grid-tile>
     </mat-grid-list>
 </div>

@@ -80,6 +80,9 @@
     width: 30%;
     background-color: white;
     border: solid 1px seagreen;
+    * {
+        padding-bottom: 3px;
+    }
 }
 
 .summary-costs {

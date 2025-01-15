@@ -15,11 +15,13 @@ export class ProductService {
   readonly httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
+      // 'Accept-Encoding': 'gzip, compress, br'
     })
   };
 
   getProducts() : Observable<Product[]> {
-    return this.httpClient.get<Product[]>(`${environment.apiUrl}/products`, this.httpOptions);
+    console.log('service');
+    return this.httpClient.get<Product[]>(`${environment.apiUrl}/products/all`, this.httpOptions);
   }
 
   getProductByID(id: number) : Observable<Product> {
@@ -29,5 +31,9 @@ export class ProductService {
   searchProducts(term: string): Observable<Product[]> {
     const params = new HttpParams().set('q', term);
     return this.httpClient.get<Product[]>(`${environment.apiUrl}/products`, { params });
+  }
+
+  deleteProduct(id: number) {
+    return this.httpClient.delete(`${environment.apiUrl}/products/delete/${id}`);
   }
 }

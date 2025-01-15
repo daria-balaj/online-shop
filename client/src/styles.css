@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+
+
+html, body { 
+    height: 100%; 
+    --color-off-white: rgb(247, 247, 247);
+    --color-dark-green: rgb(24, 72, 45)
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 a, h2, h4, span {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
