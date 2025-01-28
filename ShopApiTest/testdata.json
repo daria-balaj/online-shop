@@ -1,0 +1,32 @@
+[
+    {
+        "id": 93427,
+        "email": "aaa@domain.com",
+        "firstname": "customer1",
+        "lastname": "test",
+        "passwordhash": "AQAAAAIAAYagAAAAEHFHHIvbgd4IPLzo0kgzxnU1H+SCmAsxvS3u/ie3XhLWHQGkQCNeocRTKFt0DpFfKA==",
+        "refreshtoken": "",
+        "refreshtokenexpirytime": null,
+        "role": "customer"
+    },
+    {
+        "id": 43894,
+        "email": "bbb@domain.com",
+        "firstname": "customer2",
+        "lastname": "test",
+        "passwordhash": "AQAAAAIAAYagAAAAEHFHHIvbgd4IPLzo0kgzxnU1H+SCmAsxvS3u/ie3XhLWHQGkQCNeocRTKFt0DpFfKA==",
+        "refreshtoken": "",
+        "refreshtokenexpirytime": null,
+        "role": "customer"
+    },
+    {
+        "id": 1,
+        "email": "test@domain.com",
+        "firstname": "admin",
+        "lastname": "test",
+        "passwordhash": "AQAAAAIAAYagAAAAEHFHHIvbgd4IPLzo0kgzxnU1H+SCmAsxvS3u/ie3XhLWHQGkQCNeocRTKFt0DpFfKA==",
+        "refreshtoken": "1ZvfUueS4IEO7P/3zDUyav57qL37UH23qMNnpeonjhc=",
+        "refreshtokenexpirytime": "2025-02-02T15:14:28.5366553", 
+        "role": "admin"
+    }
+]

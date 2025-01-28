@@ -14,22 +14,56 @@
         </form>      
     </div>
     <div class="nav-right">
-        <a routerLink="/signup">
+      <!-- <div class="dropdown" dropdown>
+        <a class="dropdown-toggle text-light" dropdownToggle>
           <mat-icon>person</mat-icon>
           Account
         </a>
-        <a routerLink="/cart" >
-          <mat-icon 
-            aria-hidden="false"
-            [matBadge]="this._cartService.getItemCount()"
-            [matBadgeHidden]="this._cartService.getItemCount() === 0"
-          >shopping_cart</mat-icon>
-          Cart
-        </a>
-        <a routerLink="/admin">
-          <mat-icon>menu</mat-icon>
-        </a>
-      </div>
+        <div *dropdownMenu class="dropdown-menu">
+          <div *ngIf="(accountService.currentUser$ | async) as user" class="dropdown-item">
+            <span>Logged in as: {{user.role}}</span>
+            <a (click)="logout()">Logout</a>
+          </div>
+          <div *ngIf="!(accountService.currentUser$ | async) as user" class="dropdown-item">
+            <a routerLink="/signup">Register</a>
+          </div>
+        </div>
+      </div> -->
+      <a [matMenuTriggerFor]="menu">
+        <mat-icon>person</mat-icon>
+        Account
+      </a>
+      
+      <mat-menu #menu="matMenu" class="menu">
+        <ng-container *ngIf="(this.accountService.currentUser$ | async) as user">
+          <!-- <p mat-menu-item>
+            Logged in as: {{user.role}}
+          </p> -->
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </ng-container>
+        
+        <ng-container *ngIf="!(this.accountService.currentUser$ | async)">
+          <a mat-menu-item routerLink="/signup">
+            <mat-icon>person_add</mat-icon>
+            <span>Register</span>
+          </a>
+        </ng-container>
+      </mat-menu>
+      <a routerLink="/cart" >
+        <mat-icon 
+          aria-hidden="false"
+          [matBadge]="this._cartService.getItemCount()"
+          [matBadgeHidden]="this._cartService.getItemCount() === 0"
+        >shopping_cart</mat-icon>
+        Cart
+      </a>
+      <a routerLink="/admin">
+        <mat-icon>menu</mat-icon>
+      </a>
+    </div>
   </nav>
   
   <main class="content">

@@ -1,15 +1,18 @@
 .account-form {
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
+    position: relative;
+    height: fit-content;
+    width: 20%;
+    margin: auto;
     align-items: center;
-    gap: 4px;
-    margin-top: auto;
-    margin-bottom: auto;
+
 }
 
 .form-element {
     display: block;
-    width: 50%;
-    height: 50%;
+    /* width: 50%; */
+    /* height: 50%; */
+}
+
+.submit-button {
+    margin: auto;
 }

@@ -16,6 +16,8 @@ builder.Services.AddDbContext<DataContext>(opt =>
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ProductRepository>();
 
 builder.Services.AddAuthentication();
@@ -44,7 +46,7 @@ app.UseCors(policyBuilder => policyBuilder
 
 
 app.MapControllers();
-app.MapFallbackToController("Index", "Fallback");
+// app.MapFallbackToController("Index", "Fallback");
 
 using var scope = app.Services.CreateScope();
 try 
@@ -57,5 +59,6 @@ catch (Exception e) {
     Console.WriteLine(e);
 }
 
-
 app.Run();
+
+public partial class Program {}

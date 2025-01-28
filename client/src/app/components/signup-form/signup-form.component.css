@@ -19,4 +19,8 @@
     margin: auto;
 }
 
+.link {
+    display: block;
+    text-decoration: none;
+}
 

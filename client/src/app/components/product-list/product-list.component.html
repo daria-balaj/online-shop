@@ -1,8 +1,9 @@
 <div class="component">
+    <!-- <ng-container *ngIf="this.searchQuery"><p class="label mb-3">Search results for "{{this.searchQuery}}"</p></ng-container> -->
     <div class="filter-menu">
         <h5>Availability</h5>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" [(ngModel)]="inStockOnly" value="" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               In stock
             </label>
@@ -23,7 +24,6 @@
         </mat-select>
     </div>
       
-    <ng-container *ngIf="this.searchQuery"><p class="label mb-3">Search results for "{{this.searchQuery}}"</p></ng-container>
     <mat-grid-list class="grid" gutterSize="4" cols="4" rowHeight="320" colWidth="230">
         <mat-grid-tile *ngFor="let product of products" class="m-5">
             <app-product-card [product]="product" (addToCart)="addProductToCart($event)" ></app-product-card>

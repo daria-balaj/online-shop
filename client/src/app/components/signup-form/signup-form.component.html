@@ -1,5 +1,14 @@
 <div class="container">
+
+    
     <div class="account-form">
+
+        <a routerLink="/login" class="link pb-4">Already have an account? Sign in</a>
+
+        <div *ngIf="result === false" class="text-danger">
+            <p>{{this.errorMessage}}</p>
+        </div> 
+
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <mat-form-field appearance="outline" class="form-element">
                 <mat-label >First name</mat-label>

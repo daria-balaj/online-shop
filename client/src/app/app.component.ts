@@ -9,7 +9,8 @@ import { Item } from './models/cart';
 import { ProductService } from './services/product.service';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { AccountService } from './services/account.service';
+import {MatMenuModule} from '@angular/material/menu';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,9 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatToolbarModule,
     MatBadgeModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule
+    
   ],
   providers: [ ProductService, HttpClient ],
   templateUrl: './app.component.html',
@@ -32,7 +35,7 @@ export class AppComponent implements OnInit {
 
   search: string = '';
   //search = new FormControl('');
-  constructor (public _cartService: CartService, private router: Router) {}
+  constructor (public _cartService: CartService, public accountService: AccountService, private router: Router) {}
   
   ngOnInit() {
     this._cartService.setCartContents();
@@ -42,10 +45,14 @@ export class AppComponent implements OnInit {
   }
 
   onSearch() {
-    // console.log("search value: ", this.search);
     console.log("onSearch");
     this.router.navigate(["/search"], {
       queryParams: { q: this.search }
     });
+  }
+
+  logout() {
+    this.router.navigateByUrl('/');
+    this.accountService.logout();
   }
 }
